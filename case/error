@@ -1,0 +1,34 @@
+testCheckDetailsInGridView (gridview.GalleryTest) ... ERROR
+
+
+
+testDeleteMultiplePictureInGridView (gridview.GalleryTest) ... ERROR  Delete iteam
+
+testDeleteOnePictureInGridView (gridview.GalleryTest) ... ERROR  Delete iteam
+
+testSearchKeywordsInGridView (gridview.GalleryTest) ... ERROR  ------ new keyword
+
+#############################################################################################3
+
+
+
+
+
+testSharePictureInGridViewWithDrive (gridview.GalleryTest) ... Have no Drive
+FAIL
+testSharePictureInGridViewWithFacebook (gridview.GalleryTest) ... Have no Facebook
+Still have no Facebook
+FAIL
+testSharePictureInGridViewWithGmail (gridview.GalleryTest) ... Have no Gmail
+ERROR
+testSharePictureInGridViewWithGooglePlus (gridview.GalleryTest) ... Have no Google+
+FAIL
+testSharePictureInGridViewWithMessaging (gridview.GalleryTest) ... Have no Messaging
+Still have no Messaging
+ERROR
+testSharePictureInGridViewWithOrkut (gridview.GalleryTest) ... Have no Orkut
+Still have no Orkut
+ERROR
+testSharePictureInGridViewWithPicasa (gridview.GalleryTest) ... Have no Picasa
+FAIL
+testSharePictureInGridViewWithYouTube (gridview.GalleryTest) ... ERROR
