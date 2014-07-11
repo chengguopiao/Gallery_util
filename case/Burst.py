@@ -36,13 +36,11 @@ class GalleryTest(unittest.TestCase):
         u.enterXView('fullview')
         u.showPopCard()  
 
-
    
 
     def tearDown(self):
         super(GalleryTest,self).tearDown()
         self._pressBack(4)
-        u._clearAllResource()
         time.sleep(2)
 ########################################################
 
@@ -268,7 +266,7 @@ class GalleryTest(unittest.TestCase):
           5. Check if export to gallery successful
         """ 
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
-        u.selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(3)
         resultNO1 = commands.getoutput(ANDROFOLDER + 'jpg' + ' | wc -l')        
         self._burstMenuOption('Export to gallery')
         resultNO2 = commands.getoutput(ANDROFOLDER + 'jpg' + ' | wc -l')   
@@ -313,7 +311,7 @@ class GalleryTest(unittest.TestCase):
           6. Check if delete marked successful
         """ 
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
-        u.selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(3)
         resultNO1 = commands.getoutput(ANDROFOLDER + 'BST' + ' | wc -l')                 
         self._burstMenuOption('Delete marked')
         resultNO2 = commands.getoutput(ANDROFOLDER + 'BST' + ' | wc -l')
@@ -357,7 +355,7 @@ class GalleryTest(unittest.TestCase):
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
         time.sleep(1)
         d(resourceId = 'com.intel.android.gallery3d:id/selection_menu').click.wait()
-        u.selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(3)
         resultNO1 = commands.getoutput(ANDROFOLDER + 'BST' + ' | wc -l')
         self._burstMenuOption('Delete unmarked')
         time.sleep(1)
@@ -436,7 +434,7 @@ class GalleryTest(unittest.TestCase):
              5.Tap animate option
         """
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
-        u.selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(3)
         resultNO1 = commands.getoutput(STORAGE + 'gif' + ' | wc -l')        
         self._burstMenuOption('Animate marked','Animated GIF','Create')
         time.sleep(3)
@@ -512,8 +510,8 @@ class GalleryTest(unittest.TestCase):
              5.Exit social gallery app
         """
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
-        u.selectPictueWhenEditBurst(3)
-        u.selectPictueWhenEditBurst(2)
+        self._selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(2)
         resultNO1 = commands.getoutput(ANDROFOLDER + 'BST' + ' | wc -l')
         self._burstMenuOption('Delete burst')
         time.sleep(1)
@@ -533,7 +531,7 @@ class GalleryTest(unittest.TestCase):
              4.Exit social gallery app
         """ 
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
-        u.selectPictueWhenEditBurst(3)
+        self._selectPictueWhenEditBurst(3)
         assert d(text = '3 selected').wait.exists(timeout =3000),'tap mark fail'        
 
 
@@ -597,6 +595,10 @@ class GalleryTest(unittest.TestCase):
    
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+    def _selectPictueWhenEditBurst(self,status):
+        x=150+(status-1)*125
+        for i in range(status):
+            d.click(i*x,350)
 
 
     def _pressBack(self,touchtimes):
