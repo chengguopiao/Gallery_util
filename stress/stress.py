@@ -46,7 +46,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range(10):
+        for i in range(100):
             d.click(1260,800)          
             u.setMenuOptions('Slideshow')
             d(text = 'Cine Effect').click()
@@ -67,7 +67,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range(10):
+        for i in range(100):
             d.click(1260,800) 
             u.setMenuOptions('Slideshow')
             d(text = 'Dissolve').click()
@@ -88,7 +88,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range (10):
+        for i in range (100):
             # Step 3 + Step 4
             u.setMenuOptions('Slideshow')
             d(text = 'Flash').click()
@@ -110,7 +110,7 @@ class GalleryTest(unittest.TestCase):
         # Step 1
         u.enterXView('gridview')
         d.click(1260,800)
-        for i in range(10):
+        for i in range(100):
             self._longtouchscreencenter()
             # Step 4 + Step 5
             d(className = 'android.widget.ImageButton').click.wait()
@@ -130,7 +130,7 @@ class GalleryTest(unittest.TestCase):
         """
         u.pressBack(1)
         # Step 1
-        for i in range(10):
+        for i in range(100):
             u.launchGallery()
             time.sleep(1)
             commands.getoutput('adb shell pm clear com.intel.android.gallery3d')
@@ -143,7 +143,7 @@ class GalleryTest(unittest.TestCase):
         1. Launch gallery and tap on the camera icon at top right corner of screen
         2. Select social camera2.2
         """
-        for i in range(10):
+        for i in range(100):
             #Step 1 + Step 2
             d(description = 'Switch to camera').click.wait()
             if  d(text = 'Complete action using').wait.exists(timeout = 2000):
@@ -169,7 +169,7 @@ class GalleryTest(unittest.TestCase):
         1. Launch gallery 
         2. Tap on the drop down arrow and select location
         """
-        for i in range(10):        
+        for i in range(100):        
             fliter_list = random.choice(FLITER_LIST)
             u.selectFilter(fliter_list)
             assert d(text = fliter_list).wait.exists(timeout = 2000)
