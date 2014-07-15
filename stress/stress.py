@@ -19,7 +19,7 @@ class GalleryTest(unittest.TestCase):
             commands.getoutput('adb root')
             time.sleep(5)
             commands.getoutput('adb remount')
-            d.swipe(530,1300,1000,1300)
+            d.swipe(530,1300,100,1300)
         # clear test resource
         #self.util = util.Util
         u._clearAllResource()
@@ -46,7 +46,8 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range(100):
+        for i in range(10):
+            d.click(1260,800)          
             u.setMenuOptions('Slideshow')
             d(text = 'Cine Effect').click()
             time.sleep(3)
@@ -66,7 +67,8 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range(100):
+        for i in range(10):
+            d.click(1260,800) 
             u.setMenuOptions('Slideshow')
             d(text = 'Dissolve').click()
             time.sleep(3)
@@ -86,7 +88,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.enterXView('gridview')
-        for i in range (100):
+        for i in range (10):
             # Step 3 + Step 4
             u.setMenuOptions('Slideshow')
             d(text = 'Flash').click()
@@ -107,7 +109,8 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 1
         u.enterXView('gridview')
-        for i in range(100):
+        d.click(1260,800)
+        for i in range(10):
             self._longtouchscreencenter()
             # Step 4 + Step 5
             d(className = 'android.widget.ImageButton').click.wait()
@@ -115,8 +118,8 @@ class GalleryTest(unittest.TestCase):
             # Step 6 + Step 7
             d(className = 'android.widget.ImageButton').click.wait()
             d(text = 'Deselect all').click()
-            # Since automation can't check this point, if it back to gridview treat it as pass.
-            assert d(description = 'Switch to camera').wait.exists(timeout = 2000)   
+            assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+            time.sleep(2)
 
     # Testcase 5
     def testLaunchGallery(self):
@@ -127,7 +130,7 @@ class GalleryTest(unittest.TestCase):
         """
         u.pressBack(1)
         # Step 1
-        for i in range(100):
+        for i in range(10):
             u.launchGallery()
             time.sleep(1)
             commands.getoutput('adb shell pm clear com.intel.android.gallery3d')
@@ -140,11 +143,12 @@ class GalleryTest(unittest.TestCase):
         1. Launch gallery and tap on the camera icon at top right corner of screen
         2. Select social camera2.2
         """
-        for i in range(100):
+        for i in range(10):
             #Step 1 + Step 2
             d(description = 'Switch to camera').click.wait()
             if  d(text = 'Complete action using').wait.exists(timeout = 2000):
-                d(text = 'com.intel.camera22').click()
+                d(text = 'com.intel.camera22').click.wait()
+            if d(text = 'Always').wait.exists(timeout = 2000):
                 d(text = 'Always').click.wait()
             # confirm camera launched
             if d(text = 'OK').wait.exists(timeout = 2000):
@@ -165,10 +169,10 @@ class GalleryTest(unittest.TestCase):
         1. Launch gallery 
         2. Tap on the drop down arrow and select location
         """
-        for i in range(100):        
+        for i in range(10):        
             fliter_list = random.choice(FLITER_LIST)
             u.selectFilter(fliter_list)
             assert d(text = fliter_list).wait.exists(timeout = 2000)
 
     def _longtouchscreencenter(self):
-        d.swipe(550,1100,551,1101)
+        d.swipe(1260,800,1158,805)
