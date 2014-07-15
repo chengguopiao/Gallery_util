@@ -39,7 +39,7 @@ class GalleryTest(unittest.TestCase):
         u.launchGallery()
         u.enterXView('fullview')
         u.showPopCard()
-        for i in range(100):
+        for i in range(10):
             u.setMenuOptions('Crop')
             assert d(text = 'Crop picture').wait.exists(timeout = 3000)
             d(text = 'Crop').click.wait()
@@ -50,7 +50,7 @@ class GalleryTest(unittest.TestCase):
         u.launchGallery()
         u.enterXView('fullview')
         u.showPopCard()
-        for i in range(100):
+        for i in range(10):
             u.setMenuOptions('Crop')
             assert d(text = 'Crop picture').wait.exists(timeout = 3000)
             d(text = 'Cancel').click.wait()
@@ -61,7 +61,7 @@ class GalleryTest(unittest.TestCase):
         u.launchGallery()
         u.enterXView('fullview')
         u.showPopCard()
-        for i in range(100):
+        for i in range(10):
             self._addKeyWordEventVenue('event',"shangban")
             time.sleep(1)
             assert d(text = 'shangban').wait.exists(timeout =2000),'add event fail' 
@@ -77,7 +77,7 @@ class GalleryTest(unittest.TestCase):
         u.launchGallery()
         u.enterXView('fullview')
         u.showPopCard()
-        for i in range(100):
+        for i in range(10):
             self._addKeyWordEventVenue('venue',"kaihui")
             time.sleep(1)
             assert d(text = 'kaihui').wait.exists(timeout =2000),'add event fail' 
@@ -92,7 +92,7 @@ class GalleryTest(unittest.TestCase):
         u.launchGallery()
         u.enterXView('fullview')
         u.showPopCard()
-        for i in range(100):
+        for i in range(10):
             self._addKeyWordEventVenue('Keyword',"test-%s" %i) 
             time.sleep(1)   
             assert d(text = "test-%s" %i).wait.exists(timeout =2000),'add tag fail'  
@@ -186,7 +186,7 @@ class GalleryTest(unittest.TestCase):
         self._clearAndPushVideo()
         u.launchGallery()
         u.enterXView('fullview')
-        for i in range(100):
+        for i in range(10):
             u.tapOnCenter() #Press playback icon
             if d(text = 'Complete action using').wait.exists(timeout = 2000):
                 try:
