@@ -63,7 +63,7 @@ class GalleryTest(unittest.TestCase):
         else:
             d(text = 'Cancel').click.wait()
         self.createMovie()
-        for i in range(0,10):
+        for i in range(0,100):
             time.sleep(2)
             d(resourceId = 'com.android.videoeditor:id/add_new_media_item_menu').click.wait()        
             assert d(text = 'Import image').wait.exists(timeout = 1000),'enter import image menu fail'
@@ -83,7 +83,7 @@ class GalleryTest(unittest.TestCase):
         else:
             d(resourceId = 'android:id/up').click.wait()
             assert d(text ='Open from').wait.exists(timeout =2000)
-        for i in range(0,10):
+        for i in range(0,100):
             time.sleep(2)
             d(index = 6).click.wait()
             assert d(packageName = 'com.intel.android.gallery3d').wait.exists(timeout =2000),'enter gallery fail'
@@ -101,7 +101,7 @@ class GalleryTest(unittest.TestCase):
         d(text = 'Attach picture').click.wait()
         if not d(text = 'Gallery').wait.exists(timeout = 2000):
             d(resourceId = 'android:id/up').click.wait()
-        for i in range(0,10):
+        for i in range(0,100):
             d(index = 7).click.wait()
             assert d(packageName = 'com.intel.android.gallery3d').wait.exists(timeout =2000),'enter gallery fail'
             self._pressBack(1)
@@ -128,7 +128,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(2)
         assert d(text = 'Recent').wait.exists(timeout=2000),'enter choose photo from gallery menu fail'
         d(text = 'Recent').click.wait()
-        for i in range(0,10):
+        for i in range(0,100):
             d(index = 7).click.wait()
             assert d(packageName = 'com.intel.android.gallery3d').wait.exists(timeout =2000),'enter gallery fail'
             self._pressBack(1)
